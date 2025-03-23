@@ -1,12 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>SrSisco</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/111686857?s=48&v=4">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Contacto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+      transition: background 0.5s ease;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #888;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #4a4a4a;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2c2c2c;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="center_image" >
-        <img class="center_image_image" src="images/srsisco.png" alt="SrSisco"></img>
-        <h1 class ="nombre">SrSisco</h1>
-        <p>Haciendo cosas XD</p>
-    </div>
+  <form action="procesar.php" method="POST" autocomplete="off">
+    <h2 style="text-align:center; margin-bottom: 1rem;">Contáctanos</h2>
+    
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="correo" placeholder="Tu correo electrónico" required>
+    <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
+    
+    <!-- Honeypot -->
+    <input type="text" name="telefono" class="hidden" tabindex="-1" autocomplete="off">
+    
+    <button type="submit">Enviar</button>
+  </form>
 </body>
+</html>
