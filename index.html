@@ -3,29 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulario de Contacto</title>
+  <title>Contacto</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+      background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+      color: white;
       transition: background 0.5s ease;
     }
 
     form {
-      background: white;
+      background: #111;
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: 100%;
       max-width: 400px;
@@ -33,21 +35,30 @@
 
     form:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff2f2f;
+      margin-bottom: 1rem;
     }
 
     input, textarea {
       width: 100%;
       padding: 0.75rem;
       margin-top: 1rem;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       border-radius: 0.5rem;
-      transition: border-color 0.3s ease;
+      background-color: #222;
+      color: white;
+      transition: border-color 0.3s ease, background 0.3s ease;
     }
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: #888;
+      border-color: #ff2f2f;
+      background: #1b1b1b;
     }
 
     button {
@@ -56,7 +67,7 @@
       padding: 0.75rem;
       border: none;
       border-radius: 0.5rem;
-      background-color: #4a4a4a;
+      background-color: #ff2f2f;
       color: white;
       font-weight: 500;
       cursor: pointer;
@@ -64,7 +75,7 @@
     }
 
     button:hover {
-      background-color: #2c2c2c;
+      background-color: #cc1a1a;
     }
 
     .hidden {
@@ -73,16 +84,17 @@
   </style>
 </head>
 <body>
-  <form action="procesar.php" method="POST" autocomplete="off">
-    <h2 style="text-align:center; margin-bottom: 1rem;">Contáctanos</h2>
+  <form action="https://formspree.io/f/xzzegpeb" method="POST" autocomplete="off">
+    <h2>Formulario de mensajes de spam</h2>
     
     <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="email" name="correo" placeholder="Tu correo electrónico" required>
-    <textarea name="mensaje" placeholder="Tu mensaje..." rows="5" required></textarea>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <textarea name="mensaje" placeholder="Mensaje de spam" rows="5" required></textarea>
     
-    <!-- Honeypot -->
-    <input type="text" name="telefono" class="hidden" tabindex="-1" autocomplete="off">
+    <!-- Protección anti-spam -->
+    <input type="text" name="_gotcha" class="hidden">
     
+    <input type="hidden" name="_redirect" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
     <button type="submit">Enviar</button>
   </form>
 </body>
